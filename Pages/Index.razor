@@ -3,25 +3,34 @@
 @inject IUserService UserService
     
 
-    <div class="card mt-4">
-        <h4 class="card-header">Welcome!</h4>
-        <div class="card-body">
-            <h6>Users from secure api end point</h6>
+    
             @if (loading)
             {
                 <div class="spinner-border spinner-border-sm"></div>
             }
             @if (users != null)
             {
-                <ul>
-                    @foreach (var user in users)
-                    {
-                        <li>@user.FirstName @user.LastName</li>
-                    }
-                </ul>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <RecipeUi.Components.RecentActivity.RecentActivityList />
+                        </div>
+                        <div class="col-md-6">
+                            <RecipeUi.Components.Favorites.FaveRecipe />
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <RecipeUi.Components.Favorites.FaveShopping />
+                        </div>
+                        <div class="col-md-6">
+                            <RecipeUi.Components.Notifications.Notifications />
+                        </div>
+                    </div>
+                </div>
+                
             }
-        </div>
-    </div>
+       
 
     @code {
         private bool loading;

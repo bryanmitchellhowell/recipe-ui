@@ -94,19 +94,40 @@ textarea.form-control.invalid {
 .navbar-nav{
     margin-bottom:2px!important;
 }
-.navbar-brand {
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
+
+.navbar-brand-cust {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-right: 30px;
+    font-size: 20px;
     text-decoration: none;
     white-space: nowrap;
 }
 
-.top-marker {
-    background-color: #315937 !important;
-    height:8px;
-    width:100%;
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #77D886;
+    border-color: #315937;
+}
+
+.alert-light {
+    color: #636464;
+    background-color: #ffffff;
+    border-bottom: 1px solid #BEDFC3;
+}
+.alert-spec {
+    position: relative;
+    padding: .25rem .25rem;
+    margin-bottom: .25rem;    
+    border-radius: 0;
+}
+.alert-dismissible .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: .25rem .25rem;
 }
 
 .alert-info {
