@@ -1,0 +1,46 @@
+﻿
+
+<div class="container-fluid">
+    <div class="row"> 
+        <div class="col-md-10 float-right">
+            <h4>
+                Form
+            </h4>
+        </div>
+        <div class="col-md-2 float-end">
+            <a href="">Back to Recipe List</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <label for="recipeName" class="form-label">Recipe Name</label>
+            <input class="form-control form-control-sm" type="text" placeholder="recipe name" aria-label=".form-control-sm example">
+        </div>
+        <div class="col-md-4">
+            <label for="recipe description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
+        </div>
+        <div class="col-md-4">
+            <label for="search tags" class="form-label">Search Tags</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="separate search terms with commas"></textarea>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <div class="row">        
+        <div class="col-md-8 text-left">
+            <button type="button" class="btn btn-outline-danger float-left"><i class="bi bi-archive-fill"></i> Archive</button>
+        </div>        
+        <div class="col-md-2 text-right">
+            <button type="button" class="btn btn-secondary float-end"><i class="bi bi-clipboard-plus"></i> Duplicate and Edit</button>
+        </div>
+        <div class="col-md-2 float-md-end">
+            <button type="button" class="btn btn-primary float-end"><i class="bi bi-save-fill"></i> Save Changes</button>
+        </div>
+    </div>
+
+</div>
+
+@code {
+
+}

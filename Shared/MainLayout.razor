@@ -1,0 +1,64 @@
+﻿@inherits LayoutComponentBase
+@inject IAuthenticationService AuthenticationService
+@inject NavigationManager NavigationManager
+
+
+
+@if (AuthenticationService.User != null)
+{
+
+    <!-- Top Nav Bar -->
+    <nav class="special-navbar navbar-expand-md navbar-dark bg-dark" aria-label="Third navbar example">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Recipe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <NavLink href="recent" class="nav-item nav-link active">Recent Activity</NavLink>
+
+                    <NavLink href="shopping" class="nav-item nav-link">My Shopping Lists</NavLink>
+
+                    <NavLink href="recipe" class="nav-item nav-link">My Recipe List</NavLink>
+                </ul>
+                <form>
+                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div id="content">
+        <div class="container-fluid">
+            @Body
+        </div>
+    </div>
+    <!-- bottom nav fixed for profile, settings, home button , logout-->
+    <nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="/images/kiwi-32.png" alt="recipe home link" title="recipe home link" width="32" height="32" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <NavLink href="" Match="NavLinkMatch.All" class="nav-item nav-link"><i class="bi bi-house-door-fill"></i></NavLink>
+                    <NavLink href="settings" class="nav-item nav-link"><i class="bi bi-gear-fill"></i></NavLink>
+                    <NavLink href="profile" class="nav-item nav-link"><i class="bi bi-person-fill"></i></NavLink>
+                    <NavLink href="logout" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i></NavLink>
+
+                    @*<li class="nav-item dropup">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Placeholder</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown10">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>*@
+                </ul>
+            </div>
+        </div>
+    </nav>
+}
+

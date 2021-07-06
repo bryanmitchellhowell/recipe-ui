@@ -1,0 +1,54 @@
+﻿@page "/settings"
+@attribute [Authorize]
+@inject IUserService UserService
+
+
+<div class="card mt-4">
+    <h4 class="card-header">Settings</h4>
+    <div class="card-body">
+        <h6>Users from secure api end point</h6>
+        @if (loading)
+        {
+            <div class="spinner-border spinner-border-sm"></div>
+        }
+        @if (users != null)
+        {
+            <ul>
+                @foreach (var user in users)
+                {
+                    <li>@user.FirstName @user.LastName</li>
+                }
+            </ul>
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Settings List</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Edit Settings</button>
+                </li>                
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <br />
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <RecipeUi.Components.Settings.SettingsList/>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <RecipeUi.Components.Settings.SettingsForm />
+                </div>               
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private bool loading;
+    private IEnumerable<User> users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loading = true;
+        users = await UserService.GetAll();
+        loading = false;
+    }
+}
