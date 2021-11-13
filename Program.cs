@@ -25,12 +25,11 @@ namespace RecipeUi
             builder.Services.AddScoped(x => {
                 var apiUrl = new Uri(builder.Configuration["apiUrl"]);
 
-                // use fake backend if "fakeBackend" is "true" in appsettings.json
-                if (builder.Configuration["fakeBackend"] == "true")
-                    return new HttpClient(new FakeBackendHandler()) { BaseAddress = apiUrl };
-
                 return new HttpClient() { BaseAddress = apiUrl };
             });
+
+            builder.Services.AddHttpClient<IRecipeDataService, RecipeDataService>(client => client.BaseAddress = new Uri("https://localhost:45305/"));
+
 
             var host = builder.Build();
 

@@ -1,4 +1,4 @@
-using RecipeUi.Models;
+using RecipeApp.Shared.Models;
 using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
 

@@ -3,38 +3,36 @@
 <div class="table-responsive">
     <table class="table table-hover table-bordered">
         <caption>List of users</caption>
-        <thead class="table-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>twitter</td>
-            </tr>
-        </tbody>
-    </table>
+
+        @if (Recipes == null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+
+
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">View</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var recipe in Recipes)
+                {
+                <tr>
+                    <th scope="row">@recipe.RecipeId</th>
+                    <td>@recipe.RecipeName</td>
+                    <td>@recipe.RecipeDescription</td>
+                    <td>Edit</td>
+                </tr>
+                }                
+            </tbody>
+        }
+        </table>
 </div>
 
 
-@code {
-
-}

@@ -1,45 +1,45 @@
 ﻿@page "/"
 @attribute [Authorize]
 @inject IUserService UserService
-    
 
-    
-            @if (loading)
-            {
-                <div class="spinner-border spinner-border-sm"></div>
-            }
-            @if (users != null)
-            {
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <RecipeUi.Components.RecentActivity.RecentActivityList />
-                        </div>
-                        <div class="col-md-6">
-                            <RecipeUi.Components.Favorites.FaveRecipe />
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <RecipeUi.Components.Favorites.FaveShopping />
-                        </div>
-                        <div class="col-md-6">
-                            <RecipeUi.Components.Notifications.Notifications />
-                        </div>
-                    </div>
-                </div>
-                
-            }
-       
 
-    @code {
-        private bool loading;
-        private IEnumerable<User> users;
 
-        protected override async Task OnInitializedAsync()
-        {
-            loading = true;
-            users = await UserService.GetAll();
-            loading = false;
-        }
+@if (loading)
+{
+    <div class="spinner-border spinner-border-sm"></div>
+}
+@if (users != null)
+{
+    <div class="container-fluid">       
+        <div class="row">
+            <div class="col-md-6">
+                <RecipeUi.Components.RecentActivity.RecentActivityList />
+            </div>
+            <div class="col-md-6">
+                <RecipeUi.Components.Favorites.FaveRecipe />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <RecipeUi.Components.Favorites.FaveShopping />
+            </div>
+            <div class="col-md-6">
+                <RecipeUi.Components.Notifications.Notifications />
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@code {
+    private bool loading;
+    private IEnumerable<User> users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loading = true;
+        users = await UserService.GetAll();
+        loading = false;
     }
+}
