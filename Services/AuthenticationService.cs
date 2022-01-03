@@ -37,7 +37,7 @@ namespace RecipeUi.Services
 
         public async Task Login(string username, string password)
         {
-            User = await _httpService.Post<User>("/users/authenticate", new { username, password });
+            User = await _httpService.Post<User>("/user/authenticate", new { username, password });
             await _localStorageService.SetItem("user", User);
         }
 
