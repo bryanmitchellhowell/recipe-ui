@@ -32,7 +32,7 @@ namespace RecipeUi.Pages
         {
             loading = true;
             try
-            {
+            {                
                 await AuthenticationService.Login(model.Username, model.Password);
                 var returnUrl = NavigationManager.QueryString("returnUrl") ?? "";
                 NavigationManager.NavigateTo(returnUrl);

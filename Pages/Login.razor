@@ -31,7 +31,9 @@
                     Login
                 </button>
                 @if (!string.IsNullOrEmpty(error)) {
+                <div class="row">
                     <div class="alert alert-danger mt-3 mb-0">@error</div>
+                </div>
                 }
             </EditForm>
         </div>
